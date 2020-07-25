@@ -1,29 +1,34 @@
 package com.cts.entity;
 
+//import java.io.Serializable;
+//import java.util.List;
+
+//import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
+//import javax.persistence.JoinColumn;
+//import javax.persistence.OneToMany;
+//import javax.xml.bind.annotation.XmlAccessType;
+//import javax.xml.bind.annotation.XmlAccessorType;
+//import javax.xml.bind.annotation.XmlElement;
+//import javax.xml.bind.annotation.XmlRootElement;
 
-@XmlRootElement
-@XmlAccessorType(XmlAccessType.FIELD)
+import lombok.Data;
+
+@Data
 @Entity(name ="hospital")
-public class Hospital {
+public class Hospital  {
 	
-	@XmlElement
 	@Id
 	@GeneratedValue(strategy= GenerationType.SEQUENCE)
 	private int hospitalId ;
 	
-	@XmlElement
 	private String hospitalName;
 	
-	@XmlElement
 	private int bedsAvailable;
+	
 	
 	public Hospital() {
 		super();
@@ -34,27 +39,17 @@ public class Hospital {
 		this.hospitalName = hospitalName;
 		this.bedsAvailable = bedsAvailable;
 	}
-	public int getHospitalId() {
-		return hospitalId;
-	}
-	public void setHospitalId(int hospitalId) {
-		this.hospitalId = hospitalId;
-	}
-	public String getHospitalName() {
-		return hospitalName;
-	}
-	public void setHospitalName(String hospitalName) {
-		this.hospitalName = hospitalName;
-	}
-	public int getBedsAvailable() {
-		return bedsAvailable;
-	}
-	public void setBedsAvailable(int bedsAvailable) {
-		this.bedsAvailable = bedsAvailable;
-	}
-	@Override
-	public String toString() {
-		return "Hospital [hospitalId=" + hospitalId + ", hospitalName=" + hospitalName + ", bedsAvailable="
-				+ bedsAvailable + "]";
-	}	
+			
 }
+
+
+
+
+
+//@OneToMany(cascade=CascadeType.ALL)
+//@JoinColumn(name="specialistId")
+//private List<Specialist> specialist; 
+//
+//@OneToMany(cascade=CascadeType.ALL)
+//@JoinColumn(name="patientId")
+//private List<Patient> patient;
