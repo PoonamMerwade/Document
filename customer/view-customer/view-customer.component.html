@@ -1,0 +1,51 @@
+<!-- <div *ngIf="customer">
+    <h2>{{customer.userName | uppercase}} Details</h2>
+    <div><span>userName: </span>{{customer.userName}}</div>
+    <div>
+      <label>PAN:
+        <input [(ngModel)]="customer.userName" placeholder="name"/>
+      </label>
+    </div>
+    <button (click)="goBack()">go back</button>
+    <button (click)="save()">save</button>
+  </div> --> 
+
+
+
+<form (ngSubmit)="viewCustomer()">
+<div class="container">
+    
+    
+    <div class="form-group">
+    <input type="text" name="userName" class="form-control"
+    [(ngModel)]="customer.userName" placeholder="Enter customer's PAN"> 
+    </div>
+    <br>
+    <button class="btn btn-info" type="submit" (click)='viewCustomer()'  [routerLink]="['/customer/'+customer.userName]" >View Customer</button> 
+    <h3>Customer Details</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>firstName</th>
+                <th>lastName</th>
+                <th>userName</th>
+                <th>emailId</th>
+                <th>dob</th>
+                <th>phoneNumber</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let c of customers">
+                <td>{{c.firstName}}</td>
+                <td>{{c.lastName}}</td>
+                <td>{{c.userName}}</td>
+                <td>{{c.emailId}}</td>
+                <td>{{c.dob}}</td>
+                <td>{{c.phoneNumber}}</td>
+             </tr>
+            
+        </tbody>
+    </table>
+   
+  <!-- </div>  -->
+<!-- </form> -->
